@@ -8,15 +8,17 @@ public class Tests {
 
     public KeywordEngine keywordEngine;
 
-    @Test
-    public void loginTest(){
+    public Tests() {
         keywordEngine = new KeywordEngine();
+    }
+
+    @Test
+    public void loginTest() {
         keywordEngine.startExecution("login");
     }
 
     @Test
-    public void loginValidationTest(){
-        keywordEngine = new KeywordEngine();
+    public void loginValidationTest() {
         keywordEngine.startExecution("loginValidation");
     }
 }

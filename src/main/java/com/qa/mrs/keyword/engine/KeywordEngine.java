@@ -1,26 +1,22 @@
 package com.qa.mrs.keyword.engine;
 
 import com.qa.mrs.keyword.base.Base;
+import com.qa.mrs.keyword.utilities.PropertyReader;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Properties;
 
-public class KeywordEngine {
+public class KeywordEngine extends Base {
     public static Workbook book; // interface reference
     public static Sheet sheet;
     public final String SCENARIO_SHEET_PATH = System.getProperty("user.dir") + "/src/main/java/com/qa/mrs/keyword/scenarios/openmrs_scenarios.xlsx";
-    public WebDriver driver;
-    public Properties prop;
-    public Base base;
     public WebElement element;
 
     public void startExecution(String sheetName) {
@@ -57,19 +53,17 @@ public class KeywordEngine {
                 // if the locator is present against an action we will cater it in switch locator
                 switch (action) {
                     case "open browser":
-                        base = new Base();
-                        prop = base.init_properties();
                         // take browser name from config if it is not written in excel file
                         if (value.isEmpty() || value.equalsIgnoreCase("NA")) {
-                            driver = base.init_driver(prop.getProperty("browser"));
+                            driver = Base.init_driver(new PropertyReader().readProperty("browser"));
                         } else {
-                            driver = base.init_driver(value);
+                            driver = Base.init_driver(value);
                         }
                         break;
 
                     case "enter url":
                         if (value.isEmpty() || value.equalsIgnoreCase("NA")) {
-                            driver.get(prop.getProperty("url"));
+                            driver.get(new PropertyReader().readProperty("url"));
                         } else {
                             driver.get(value);
                         }
@@ -96,7 +90,6 @@ public class KeywordEngine {
                             String elementText = element.getText();
                             System.out.println("text from element is " + elementText);
                         }
-                        locatorName = null;
                         break;
 
                     case "xpath":
@@ -113,8 +106,8 @@ public class KeywordEngine {
                             System.out.println("text from element is " + elementText);
                             Assert.assertEquals(elementText, value);
                         }
-                        locatorName = null;
                         break;
+
                     case "className":
                         element = driver.findElement(By.className(locatorValue));
                         if (action.equalsIgnoreCase("senkeys")) {
@@ -128,7 +121,6 @@ public class KeywordEngine {
                             String elementText = element.getText();
                             System.out.println("text from element is " + elementText);
                         }
-                        locatorName = null;
                         break;
 
                     case "name":
@@ -144,7 +136,6 @@ public class KeywordEngine {
                             String elementText = element.getText();
                             System.out.println("text from element is " + elementText);
                         }
-                        locatorName = null;
                         break;
 
                     case "cssSelector":
@@ -160,17 +151,14 @@ public class KeywordEngine {
                             String elementText = element.getText();
                             System.out.println("text from element is " + elementText);
                         }
-                        locatorName = null;
                         break;
                     case "linkText":
                         element = driver.findElement(By.linkText(locatorValue));
                         element.click();
-                        locatorName = null;
                         break;
                     case "partialLinkText":
                         element = driver.findElement(By.partialLinkText(locatorValue));
                         element.click();
-                        locatorName = null;
                         break;
                     default:
                         break;
