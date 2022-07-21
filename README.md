@@ -14,9 +14,7 @@ The basic working of the Keyword Driven Framework is to divide the Test Case int
 
 5. Value: Data to be entered like Admin as username
 
-
-A Manual tester can also write and maintain the script according to keywords and can contribute to the framework but an automation tester is also require for the coding part
-
+### List of components
 
 Below is the list of common components that you would required to achieve the task:
 
@@ -32,6 +30,8 @@ Below is the list of common components that you would required to achieve the ta
 6. Execution Engine: It contains all the code to drive the test from Excel sheet, Function Lib and Properties file.
 
 Let just understand this concept with the help of the framework I have created for the demo of Open MRS application.
+
+### Workflow
 
 Consider that you have to automate a flow where you would need to do the following things:
 
@@ -65,7 +65,7 @@ Step 4: Place created excel file under a new package
 Step 5: Create config.properties, a base file(for browser and properties initialization),  KeywordEngine(containing the implementation of keywords and test cases) and a testNG class to for the execution of test cases. Place all of them in separate packages
 
 
-#### Built with
+### Built with
 - Selenium
 - TestNG
 - Maven
@@ -78,7 +78,7 @@ Step 5: Create config.properties, a base file(for browser and properties initial
 - Install Java Development Kit - Set your JAVA_HOME environment variable to point to Java folder and add the JDK's bin folder to your path environment variable.
 - Install Maven - add Maven's bin folder to your path environment variable.
 
-## Installation and Run
+## Verify the Installations 
 Confirm installations and paths are setup in a terminal
 
 # Maven
@@ -91,10 +91,12 @@ mvn -v
 java -version
 ```
 
-## Open folder in Intellij IDEA
-1. Navigate to POM.xml file, right click and click reload
-2. Navigate to Tests.java inside src/test/java/com/qa/mrs/keyword/tests/Tests.java
-3. Run the file
+## How to run the project
+
+1. Open folder in Intellij IDEA
+2. Navigate to POM.xml file, right click and click reload
+3. Navigate to Tests.java inside src/test/java/com/qa/mrs/keyword/tests/Tests.java
+4. Run the file
 
 ### Some advantages:
 
