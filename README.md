@@ -98,17 +98,6 @@ java -version
 3. Navigate to Tests.java inside src/test/java/com/qa/mrs/keyword/tests/Tests.java
 4. Run the file
 
-### Some advantages:
-
-- As it is maintained in Excel sheet no coding is exposed, the test scripts are easy to read and understand and non technical members can also write test cases. 
-
-- As there is just one Execution Engine, it encourage extreme code re-usability.
-
-### Some disadvantages:
-
-- Confusing in terms of read the data, maintenance is high as compared to other frameworks and time taken to write test scripts is higher than usual 
-
-
 There are many approaches to implement keyword driven framework but I have chosen this one.
 
 
