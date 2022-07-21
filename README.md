@@ -60,6 +60,7 @@ Step 2: Once all actions are identified, the next step is to map them in an exce
 ![excelFile](https://user-images.githubusercontent.com/46183736/180224472-ffdbe3b5-2e8d-446e-84c0-268aa9841036.PNG)
 
 Step 3: After that, create a project in IDE and all the dependencies in pom.xml file
+
 ![folder hierarchy](https://user-images.githubusercontent.com/46183736/180224566-360c83b3-5366-4fd3-8a38-caabb59d5148.PNG)
 
 Step 4: Place created excel file under a new package
